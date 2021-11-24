@@ -7,7 +7,7 @@
         <div>
             <label>
                 投稿：
-                <input type="text" name="comment">
+                <textarea name="comment" rows="5"></textarea>
             </label>
         </div>
         

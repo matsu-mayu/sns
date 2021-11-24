@@ -3,6 +3,13 @@
 @section('content')
     <h1>{{ $title }}</h1>
     
+    <form>
+        <div>
+            <input type="search" name="search" value="{{request('search')}}" placeholder="キーワードを入力">
+        </div>
+            <input type="submit" value="検索">
+    </form>
+    
      <ul class="recommend_users">
         @forelse($recommended_users as $recommended_user)
         <li>

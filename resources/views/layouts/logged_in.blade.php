@@ -3,6 +3,7 @@
 @section('header')
 <header>
     <ul class="header_nav">
+        <li>マイクロブログ</li>
         <li><a href="{{ route('posts.index') }}">投稿一覧</a></li>
         
         <li><a href="{{ route('posts.create') }}">新規投稿</a></li>

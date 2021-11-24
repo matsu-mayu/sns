@@ -1,7 +1,7 @@
 @extends('layouts.logged_in')
  
 @section('content')
-    <a href="{{ route('posts.create') }}">新規投稿</a>
+    <h1>{{ $title }}</h1>
     <ul>
     @forelse($posts as $post)
         <li>

@@ -1,6 +1,6 @@
 .header_nav {
     display: flex;
-    list-style: none;
+    justify-content: space-between;
     padding-left: 0;
 }
 
@@ -8,6 +8,15 @@
     margin-right: 30px;
     list-style: none;
 }
+
+.header_left {
+    margin-left: auto;
+}
+
+.header_right {
+    margin-right: auto;
+}
+
 
 .error {
     color: red;

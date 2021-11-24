@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\PostEditRequest;
 
 class PostController extends Controller
 {
@@ -41,13 +42,21 @@ class PostController extends Controller
         return redirect()->route('posts.index', \Auth::user());
     }
     
+    public function show($id)
+    {
+        $post = Post::find($id);
+        return view('posts.show', [
+            'title' => '投稿詳細',
+            'post' => $post,
+        ]);
+    }
+    
     public function edit($id)
     {
         $post = Post::find($id);
-        
         return view('posts.edit', [
             'title' => '投稿の編集',
-            'post' => $post,
+            'post' =>  $post,
         ]);
     }
     
@@ -56,15 +65,15 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->update($request->only(['name', 'comment']));
         session()->flash('success', '投稿を編集しました');
-        return redirect()->route('items.show', $id);
+        return redirect()->route('posts.show', $id);
     }
     
     public function destroy($id)
     {
         $post = Post::find($id);
         
-        $post>delete();
-        \Session::flash('sucdess', '投稿を削除しました');
+        $post->delete();
+        \Session::flash('success', '投稿を削除しました');
         return redirect()->route('posts.index', \Auth::user());
     }
 

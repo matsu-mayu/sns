@@ -8,7 +8,7 @@
         <div>
             <label>
                 投稿：
-                <input type="text" name="comment" value="{{ $post->log }}">
+                <input type="text" name="comment" value="{{ $post->comment }}">
             </label>
         </div>
         

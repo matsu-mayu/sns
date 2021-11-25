@@ -3,6 +3,27 @@
 @section('content')
     <h1>{{ $title }}</h1>
     
+    <form method="GET" action="{{route('posts.index')}}">
+        <input type="search" name="search" placeholder="キーワードを入力" value="@if (isset($search)) {{ $search }} @endif">
+        <div>
+            <button type="submit">検索</button>
+        <button>
+            <a href="{{ route('posts.index') }}">
+                クリア
+            </a>
+        </button>
+        </div>
+    </form>
+    
+    @if($search !== null)
+        <p>検索結果</p>
+        @foreach($search_posts as $search_post)
+            <a href="{{ route('posts.show', $search_post)}}">
+                {{ $search_post->comment }}
+            </a>
+        @endforeach
+    @endif
+    
      <ul class="recommend_users">
         @forelse($recommended_users as $recommended_user)
         <li>

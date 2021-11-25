@@ -17,29 +17,35 @@ class PostController extends Controller
     
     public function index(Request $request)
     {
-        $post = Post::paginate(20);
         $search = $request->input('search');
         $query = Post::query();
+        $search_posts = [];
         
         if($search !== null) {
+            // 全角スペースを半角に変換
             $spaceConversion = mb_convert_kana($search, 's');
+            // 単語を半角スペースで区切り、配列にする
             $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
+             // 単語をループで回し、commentと部分一致するものがあれば、$queryとして保持される
             foreach($wordArraySearched as $value) {
                 $query->where('comment', 'like', '%'.$value.'%');
             }
-        
-        $posts = $query->paginate(20);
+        // 上記で取得した$queryを変数$postsに代入
+        $search_posts = $query->get();
         
         }
         
         $user = \Auth::user();
         $follow_user_ids = $user->follow_users->pluck('id');
         $user_posts = $user->posts()->orWhereIn('user_id', $follow_user_ids )->latest()->paginate(5);
-        return view('posts.index', [
+         // ビューにpostsとsearchを変数として渡す
+        return view('posts.index')
+            ->with([
             'title' => '投稿一覧',
             'search' => $search,
             'posts' => $user_posts,
-            'recommended_users' => User::recommend($user->id, $follow_user_ids)->get()
+            'recommended_users' => User::recommend($user->id, $follow_user_ids)->get(),
+            'search_posts' => $search_posts
         ]);
     }
     

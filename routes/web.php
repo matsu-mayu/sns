@@ -11,6 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostController@index');
+
+Auth::routes();
+
+Route::get('/top', 'PostController@index')->name('posts.index');
+Route::resource('posts', 'PostController');
+
+// Route::get('/posts/edit', 'PostController@edit')->name('posts.edit');
+// Route::patch('/posts', 'PostController@update')->name('posts.update');
+
+Route::resource('follows', 'FollowController') -> only ([
+    'index', 'store', 'destroy'
+]);
+
+Route::get('/follower', 'FollowController@followerIndex');
+
+Route::get('/followeach', 'FollowController@followEach');
+
+Route::resource('users', 'UserController')->only([
+    'show',
+]);

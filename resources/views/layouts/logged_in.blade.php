@@ -2,7 +2,7 @@
 
 @section('header')
 <header>
-    <div class="content_center">
+    <div>
         <ul class="header_nav">
             <li>マイクロブログ</li>
             <li><a href="{{ route('posts.index') }}">投稿一覧</a></li>

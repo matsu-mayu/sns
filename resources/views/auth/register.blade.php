@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="content_center">
-    <h1 class="login_h1">ユーザー登録</h1>
+    <h1>ユーザー登録</h1>
         <div>
-            <form method="POST" action"{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div>
                     <label class="login_label"> 
@@ -28,7 +28,7 @@
                 </div>
                 
                 <div>
-                    <input type="submit" value="登録">
+                    <input type="submit" class="login_button button" value="登録">
                 </div>
             </form>
         </div>

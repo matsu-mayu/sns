@@ -17,7 +17,7 @@ class FollowController extends Controller
     {
         $follow_users = \Auth::user()->follow_users;
         return view('follows.index', [
-            'title' => 'フォロー一覧',
+            'title' => 'フォロー中',
             'follow_users' => $follow_users,
         ]);
     }
@@ -26,7 +26,7 @@ class FollowController extends Controller
         $followEach = \Auth::user()->followEach();
         // dd($followEach);
         return view('follows.followeach', [
-            'title' => '相互フォロー一覧',
+            'title' => '相互フォロー中',
             'followeach_users' => $followEach,
         ]);
     }

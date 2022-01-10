@@ -1,6 +1,8 @@
 /* default */
 .body {
     min-width: 1200px;
+    background-color: #e8eef2;
+    font-family: monospace;
 }
 
 .error {
@@ -11,6 +13,43 @@
     color: green;
 }
 
+
+
+
+/* common */
+li {
+    list-style: none;
+}
+
+.Index {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 11pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 3px 3px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : black;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 3px 3px 3px #666666;  /* 影の設定 */
+    border        : 2px solid  #7c9db2;    /* 枠の指定 */
+}
+
+.button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #ffffff;     /* 背景色     */
+    background    : #7c9db2;     /* 文字色     */
+}
+
+.margin {
+    margin: auto;
+}
 
 
 /* logged_in register*/
@@ -38,16 +77,49 @@
     margin-right: auto;
 }
 
-.login_h1 {
-    width: 500px;
-    margin: auto;
+h1 {
+    text-align: center;
 }
 
 .login_label {
     display: inline-block;
     text-align: right;
-    width: 500px;
-    margin: 10px 0px 5px 0px;
+    width: 370px;
+    margin: 15px 0px 5px 0px;
+}
+
+.login_button {
+    margin-top: 15px;
 }
 
 
+
+/* posts.index */
+.posts_border {
+    width: 500px;
+    list-style: none;
+    border: solid 3px #7c9db2;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    flex-basis: 30%;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.search_box {
+   text-align: center;
+   margin-top: 20px;
+}
+
+.placeholder {
+    width: 300px;
+}
+
+
+
+
+/* posts.create */
+ .comment_create {
+    margin-top: 20px;
+}

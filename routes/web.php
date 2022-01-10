@@ -25,9 +25,9 @@ Route::resource('follows', 'FollowController') -> only ([
     'index', 'store', 'destroy'
 ]);
 
-Route::get('/follower', 'FollowController@followerIndex');
+Route::get('/follower', 'FollowController@followerIndex')->name('follower.index');
 
-Route::get('/followeach', 'FollowController@followEach');
+Route::get('/followeach', 'FollowController@followEach')->name('followeach.index');
 
 Route::resource('users', 'UserController')->only([
     'show',

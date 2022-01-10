@@ -4,12 +4,13 @@
  
 @section('content')
   <h1>{{ $title }}</h1>
-  <dl>
-      <dt>
-        投稿：
-      </dt>
-        <dd>
-          {{ $post->comment }}
-        </dd>
-  </dl>
+    <div class="posts_border posts_width margin edit_form">
+      <p class="posts_sub">投稿者：{{ $post->user->name }}</p>
+      <p class="posts_sub">投稿内容：{{ $post->comment }}</p>
+      <p class="posts_sub">投稿日時：{{ $post->created_at }}</p>
+    </div>
+
+    <div class="content_center backTop_button">
+      [<a href="{{ route('posts.index') }}">トップへ戻る</a>]
+    </div>
 @endsection

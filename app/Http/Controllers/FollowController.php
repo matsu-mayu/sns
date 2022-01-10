@@ -54,7 +54,7 @@ class FollowController extends Controller
     {
         $followers = \Auth::user()->followers;
         return view('follows.follower_index', [
-          'title' => 'フォロワー一覧',
+          'title' => 'フォロワー',
           'followers' => $followers,
         ]);
     }

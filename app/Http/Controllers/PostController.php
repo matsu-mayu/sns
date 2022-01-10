@@ -70,7 +70,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         return view('posts.show', [
-            'title' => '投稿詳細',
+            'title' => '投稿内容',
             'post' => $post,
         ]);
     }
@@ -84,7 +84,7 @@ class PostController extends Controller
         ]);
     }
     
-     public function update(Postrequest $request)
+     public function update(Postrequest $request, $id)
     {
         $post = Post::find($id);
         $post->update($request->only(['name', 'comment']));

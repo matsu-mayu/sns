@@ -13,7 +13,6 @@
             >
                 <button type="submit" class="button">検索</button>
         </form>
-    
         @if($search !== null)
             <p>検索結果</p>
             @foreach($search_posts as $search_post)
@@ -24,44 +23,55 @@
         @endif
     </div>
 
-    <div>
-        <ul class="recommend_users">
-            @forelse($recommended_users as $recommended_user)
-                <li>
-                    <a href="{{ route('users.show', $recommended_user) }}">{{ $recommended_user->name }}</a>
-                    <form method="post" action="{{route('follows.store')}}" class="follow">
-                        @csrf
-                        <input type="hidden" name="follow_id" value="{{ $recommended_user->id }}">
-                        <input type="submit" value="フォロー">
-                    </form>
-                </li>
-            @empty
-                <li>他のユーザーが存在しません</li>
-            @endforelse
-                <a href="{{ route('follows.index') }}">フォローしているユーザー</a>
-        </ul>
-    </div>
-  
     <div class="content_center">
         <ul>
             @forelse($posts as $post)
-                <li class="posts_border">
-                    <div>投稿者：{{ $post->user->name }}</div>
-                    <div>投稿内容：{!! nl2br(e($post->comment)) !!}</div>
-                    <div>投稿日時：{{ $post->created_at }}</div>
+                <li class="posts_border posts_width margin">
+                    <p class="posts_sub">投稿者：{{ $post->user->name }}</p>
+                    <div class="posts_sub">
+                        ＜投稿内容＞
+                        <p class="posts_sub">{{ $post->comment }}</p>
+                    </div>
+                    <p class="posts_sub">投稿日時：{{ $post->created_at }}</p>
                     <div class="Index center">
                         @if($post->user_id === \Auth::user()->id)
                             [<a href="{{ route('posts.edit', $post) }}">編集</a>]
                             <form method="post" class="delete" action="{{ route('posts.destroy', $post) }}">
                                     @csrf
                                     @method('delete')
-                                    <input type="submit" class="button" value="削除">
+                                    <input type="submit" class="button delete_button" value="削除">
                             </form>
                         @endif
                     </div>
                 </li>
             @empty
-                <li>投稿がありません</li>
+                <li class="no_posts">投稿がありません</li>
             @endforelse
+        </ul>  
+    </div>
+
+    <div class="content_center">
+        <h2>オススメのユーザー</h2>
+            <ul class="Index">
+                @forelse($recommended_users as $recommended_user)
+                    <li class="followed_width posts_border">
+                        <a href="{{ route('users.show', $recommended_user) }}">{{ $recommended_user->name }}さん</a>
+                        <form method="post" action="{{route('follows.store')}}" class="follow">
+                            @csrf
+                            <input type="hidden" name="follow_id" value="{{ $recommended_user->id }}">
+                            <input type="submit" class="button follow_button" value="フォローする">
+                        </form>
+                    </li>
+                @empty
+                    <li class="no_posts">他のユーザーが存在しません</li>
+                @endforelse
+            </ul>
+                <div class="Index followed">
+                    <p><a href="{{ route('follows.index') }}">フォローしているユーザー</a></p>
+                    <p class="space_p">／</p>
+                    <p><a href="{{ route('follower.index') }}">フォローされているユーザー</a></p>
+                    <p class="space_p">／</p>
+                    <p><a href="{{ route('followeach.index') }}">相互フォローしているユーザー</a></p>
+                </div>
     </div>
 @endsection

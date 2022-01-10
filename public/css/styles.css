@@ -17,6 +17,9 @@
 
 
 /* common */
+h2 {
+    margin-top: 100px;
+}
 li {
     list-style: none;
 }
@@ -52,6 +55,8 @@ li {
 }
 
 
+
+
 /* logged_in register*/
 .content_center {
     text-align: center;
@@ -79,12 +84,13 @@ li {
 
 h1 {
     text-align: center;
+    margin: 20px auto 10px auto;
 }
 
 .login_label {
     display: inline-block;
     text-align: right;
-    width: 370px;
+    width: 400px;
     margin: 15px 0px 5px 0px;
 }
 
@@ -95,6 +101,15 @@ h1 {
 
 
 /* posts.index */
+.search_box {
+   text-align: center;
+   margin: 20px auto 30px auto;
+}
+
+.placeholder {
+    width: 300px;
+}
+
 .posts_border {
     width: 500px;
     list-style: none;
@@ -107,19 +122,69 @@ h1 {
     margin-top: 20px;
 }
 
-.search_box {
-   text-align: center;
-   margin-top: 20px;
+.posts_width {
+    width: 800px;
+    padding: 10px;
 }
 
-.placeholder {
-    width: 300px;
+.posts_sub {
+    display: block;
+    text-align: left;
 }
 
+.delete_button {
+    margin-left: 10px;
+}
+
+.no_posts {
+    font-size: 20px;
+}
+
+.space_p {
+    margin: 0px 10px;
+}
 
 
 
 /* posts.create */
  .comment_create {
     margin-top: 20px;
+}
+
+
+
+/* posts.edit */
+.edit_form {
+    margin: 50px auto 15px auto;
+}
+
+.backTop_button {
+    margin-top: 10px;
+}
+
+
+
+/* follow */
+.follow_button {
+    font-size: 12px;
+    padding: 3px;
+    margin: 10px auto;
+}
+
+.followed {
+    margin-top: 35px;
+}
+
+.followed_width {
+    width: 150px;
+    margin: auto 10px;
+}
+
+
+
+/* users */
+.user_name {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bolder;
 }

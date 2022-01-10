@@ -1,7 +1,72 @@
+/* default */
+.body {
+    min-width: 1200px;
+    background-color: #e8eef2;
+    font-family: monospace;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+
+
+
+/* common */
+h2 {
+    margin-top: 100px;
+}
+li {
+    list-style: none;
+}
+
+.Index {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 11pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 3px 3px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : black;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 3px 3px 3px #666666;  /* 影の設定 */
+    border        : 2px solid  #7c9db2;    /* 枠の指定 */
+}
+
+.button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #ffffff;     /* 背景色     */
+    background    : #7c9db2;     /* 文字色     */
+}
+
+.margin {
+    margin: auto;
+}
+
+
+
+
+/* logged_in register*/
+.content_center {
+    text-align: center;
+}
+
 .header_nav {
     display: flex;
-    justify-content: space-between;
+    list-style: none;
     padding-left: 0;
+    margin: 15px 30px 0px 0px;
 }
 
 .header_nav li {
@@ -17,11 +82,109 @@
     margin-right: auto;
 }
 
-
-.error {
-    color: red;
+h1 {
+    text-align: center;
+    margin: 20px auto 10px auto;
 }
 
-.success {
-    color: green;
+.login_label {
+    display: inline-block;
+    text-align: right;
+    width: 400px;
+    margin: 15px 0px 5px 0px;
+}
+
+.login_button {
+    margin-top: 15px;
+}
+
+
+
+/* posts.index */
+.search_box {
+   text-align: center;
+   margin: 20px auto 30px auto;
+}
+
+.placeholder {
+    width: 300px;
+}
+
+.posts_border {
+    width: 500px;
+    list-style: none;
+    border: solid 3px #7c9db2;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    flex-basis: 30%;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.posts_width {
+    width: 800px;
+    padding: 10px;
+}
+
+.posts_sub {
+    display: block;
+    text-align: left;
+}
+
+.delete_button {
+    margin-left: 10px;
+}
+
+.no_posts {
+    font-size: 20px;
+}
+
+.space_p {
+    margin: 0px 10px;
+}
+
+
+
+/* posts.create */
+ .comment_create {
+    margin-top: 20px;
+}
+
+
+
+/* posts.edit */
+.edit_form {
+    margin: 50px auto 15px auto;
+}
+
+.backTop_button {
+    margin-top: 10px;
+}
+
+
+
+/* follow */
+.follow_button {
+    font-size: 12px;
+    padding: 3px;
+    margin: 10px auto;
+}
+
+.followed {
+    margin-top: 35px;
+}
+
+.followed_width {
+    width: 150px;
+    margin: auto 10px;
+}
+
+
+
+/* users */
+.user_name {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bolder;
 }

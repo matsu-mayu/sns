@@ -2,16 +2,21 @@
  
 @section('content')
     <h1>{{ $title }}</h1>
-    <form method="POST" action="{{ route('posts.update', $post) }}">
-        @csrf
-        @method('patch')
-        <div>
-            <label>
-                投稿：
-                <input type="text" name="comment" value="{{ $post->comment }}">
-            </label>
+        <div class="content_center">
+            <form method="POST" action="{{ route('posts.update', $post) }}">
+                @csrf
+                @method('patch')
+                    <div class="edit_form">
+                        <label>
+                            <input 
+                                type="text"
+                                name="comment"
+                                class="placeholder"
+                                value="{{ $post->comment }}">
+                        </label>
+                    </div>
+                
+                <input type="submit" class="button" value="投稿">
+            </form>
         </div>
-        
-        <input type="submit" value="投稿">
-    </form>
 @endsection

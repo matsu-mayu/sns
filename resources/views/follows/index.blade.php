@@ -2,19 +2,23 @@
  
 @section('content')
   <h1>{{ $title }}</h1>
- 
-  <ul class="Index content_center">
-      @forelse($follow_users as $follow_user)
-          <li class="posts_border">
-            <a href="{{ route('users.show', $follow_user) }}">{{ $follow_user->name }}さん</a>
-              <form method="post" action="{{route('follows.destroy', $follow_user)}}" class="follow">
-                @csrf
-                @method('delete')
-                  <input type="submit" class="button follow_button" value="フォロー解除">
-              </form>
-          </li>
-      @empty
-          <li class="no_posts">フォローしているユーザーはいません</li>
-      @endforelse
-  </ul>
+    <div class="content_center">
+      <ul class="Index">
+          @forelse($follow_users as $follow_user)
+              <li class="followed_width posts_border">
+                <a href="{{ route('users.show', $follow_user) }}">{{ $follow_user->name }}さん</a>
+                  <form method="post" action="{{route('follows.destroy', $follow_user)}}" class="follow">
+                    @csrf
+                    @method('delete')
+                      <input type="submit" class="button follow_button" value="フォロー解除">
+                  </form>
+              </li>
+          @empty
+              <li class="no_posts">フォローしているユーザーはいません</li>
+          @endforelse
+      </ul>
+      <div class="login_button">
+        [<a href="{{ route('posts.index') }}">トップへ戻る</a>]
+      </div>
+    </div>
 @endsection

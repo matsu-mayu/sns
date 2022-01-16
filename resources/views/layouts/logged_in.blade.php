@@ -1,8 +1,7 @@
 @extends('layouts.default')
 
 @section('header')
-<header>
-    <div>
+    <header>
         <ul class="header_nav">
             <li>
                 <!-- <a href="{{ route('posts.index') }}">
@@ -17,6 +16,5 @@
                 </form>
             </li>
         </ul>
-    </div>  
-</header>
+    </header>
 @endsection

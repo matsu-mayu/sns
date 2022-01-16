@@ -6,7 +6,7 @@
   <ul class="Index content_center">
       @forelse($followeach_users as $follow_user)
           <li class="posts_border">
-            {{ $follow_user->name }}
+            <a href="{{ route('users.show', $follow_user)}}">{{ $follow_user->name }}さん</a>
             <form method="post" action="{{route('follows.destroy', $follow_user)}}" class="follow">
             @csrf
             @method('delete')

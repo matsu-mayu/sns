@@ -2,7 +2,7 @@
  
 @section('content')
     <h1>{{ $title }}</h1>
-    <div class="Index">
+    <div>
         <form method="GET" action="{{route('posts.index')}}" class="search_box">
             <input 
                 type="search"
@@ -14,12 +14,17 @@
                 <button type="submit" class="button">検索</button>
         </form>
         @if($search !== null)
-            <p>検索結果</p>
-            @foreach($search_posts as $search_post)
-                <a href="{{ route('posts.show', $search_post)}}">
-                    {{ $search_post->comment }}
-                </a>
-            @endforeach
+            <p class="user_name content_center">検索結果</p>
+            @forelse($search_posts as $search_post)
+                <li class="posts_border margin">
+                    <div class="posts_sub">
+                        ＜投稿内容＞
+                        <a href="{{ route('posts.show', $search_post)}}">{{ $search_post->comment }}</a>
+                    </div>
+                </li>
+            @empty
+                <li class="content_center">該当する投稿はありません。</li>
+            @endforelse
         @endif
     </div>
 

@@ -2,8 +2,8 @@
 
 @section('content')
 <h1>{{ $title }}</h1>
-  <main class="content_center">
-    <article>
+  <main>
+    <article class="content_center">
       <p class="user_name">{{ $user->name }}さん</p>
         <ul>
           @foreach($user->posts as $post)
@@ -16,6 +16,8 @@
           @endforeach
         </ul>
     </article>
+  </main>
+    <article class="content_center">
       <section>
         @if(Auth::user()->isFollowing($user))
           <form method="post" action="{{route('follows.destroy', $user)}}" class="follow">
@@ -36,5 +38,5 @@
           [<a href="{{ route('posts.index') }}">トップへ戻る</a>]
         </div>
       </section>
-</main>
+    </article>
 @endsection

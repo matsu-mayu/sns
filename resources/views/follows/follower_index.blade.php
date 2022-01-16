@@ -2,11 +2,12 @@
  
 @section('content')
   <h1>{{ $title }}</h1>
-    <div class="content_center">
-      <ul class="Index">
+    <main class="content_center">
+      <article>
+        <ul class="Index">
           @forelse($followers as $follower)
-              <li class="posts_border">
-                <a href="{{ route('users.show', $follower) }}">{{ $follower->name }}さん</a>
+            <li class="posts_border">
+              <a href="{{ route('users.show', $follower) }}">{{ $follower->name }}さん</a>
                 @if(Auth::user()->isFollowing($follower))
                   <form method="post" action="{{route('follows.destroy', $follower)}}" class="follow">
                     @csrf
@@ -20,13 +21,16 @@
                     <input type="submit" class="button follow_button" value="フォロー">
                   </form>
                 @endif
-              </li>
+            </li>
           @empty
-              <li class="no_posts">フォローされているユーザーはいません。</li>
+            <li class="no_posts">フォローされているユーザーはいません。</li>
           @endforelse
-      </ul>
-      <div class="login_button">
-        [<a href="{{ route('posts.index') }}">トップへ戻る</a>]
-      </div>
-    </div>
+        </ul>
+      </article>
+    </main>
+      <section class="content_center">
+        <div class="login_button">
+          [<a href="{{ route('posts.index') }}">トップへ戻る</a>]
+        </div>
+      </section>
 @endsection

@@ -66,11 +66,11 @@
                         @forelse($recommended_users as $recommended_user)
                             <li class="followed_width posts_border">
                                 <a href="{{ route('users.show', $recommended_user) }}">{{ $recommended_user->name }}さん</a>
-                                    <form method="post" action="{{route('follows.store')}}" class="follow">
-                                        @csrf
-                                        <input type="hidden" name="follow_id" value="{{ $recommended_user->id }}">
-                                        <input type="submit" class="button follow_button" value="フォローする">
-                                    </form>
+                                <form method="post" action="{{ route('follows.store') }}" class="follow">
+                                    @csrf
+                                    <input type="hidden" name="follow_id" value="{{ $recommended_user->id }}">
+                                    <input type="submit" class="button follow_button" value="フォローする">
+                                </form>
                             </li>
                         @empty
                             <li class="no_posts">他のユーザーが存在しません</li>

@@ -2,13 +2,13 @@
  
 @section('content')
   <h1>{{ $title }}</h1>
-    <main>
+    <main class="content_center">
       <article>
-        <ul class="Index content_center">
+        <ul class="Index">
           @forelse($followeach_users as $follow_user)
-            <li class="posts_border">
+            <li class="followed_width posts_border">
               <a href="{{ route('users.show', $follow_user)}}">{{ $follow_user->name }}さん</a>
-              <form method="post" action="{{route('follows.destroy', $follow_user)}}" class="follow">
+              <form method="post" action="{{ route('follows.destroy', $follow_user) }}" class="follow">
                 @csrf
                 @method('delete')
                 <input type="submit" class="button follow_button" value="フォロー解除">
@@ -20,4 +20,9 @@
         </ul>
       </article>
     </main>
+    <section class="content_center">
+      <div class="login_button">
+        [<a href="{{ route('posts.index') }}">トップへ戻る</a>]
+      </div>
+    </section>
 @endsection

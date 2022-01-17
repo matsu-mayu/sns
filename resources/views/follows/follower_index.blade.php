@@ -6,13 +6,13 @@
       <article>
         <ul class="Index">
           @forelse($followers as $follower)
-            <li class="posts_border">
+            <li class="followed_width posts_border">
               <a href="{{ route('users.show', $follower) }}">{{ $follower->name }}さん</a>
                 @if(Auth::user()->isFollowing($follower))
                   <form method="post" action="{{route('follows.destroy', $follower)}}" class="follow">
                     @csrf
                     @method('delete')
-                    <input type="submit" class="button" value="フォロー解除">
+                    <input type="submit" class="button follow_button" value="フォロー解除">
                   </form>
                 @else
                   <form method="post" action="{{route('follows.store')}}" class="follow">

@@ -1,26 +1,25 @@
 @extends('layouts.not_logged_in')
 
 @section('content')
-<div class="content_center">
-    <h1>ログイン</h1>
-        <div>
+<h1 class="content_center">ログイン</h1>
+    <main class="content_center">
+        <article>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <div>
+                <section>
                     <label class="login_label">
                         ユーザー名：
                         <input type="text" name="name">
                     </label>
-                </div>
-                
-                <div>
+                </section>
+                <section>
                     <label class="login_label">
                         パスワード：
                         <input type="password" name="password">
                     </label>
-                </div>
+                </section>
                 <input type="submit" class="login_button button" value="ログイン">
             </form>
-        </div>
-</div>
+        </article>
+    </main>
 @endsection

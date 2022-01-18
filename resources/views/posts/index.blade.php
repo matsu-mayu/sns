@@ -65,7 +65,7 @@
                     <ul class="Index">
                         @forelse($recommended_users as $recommended_user)
                             <li class="followed_width posts_border">
-                                <a href="{{ route('users.show', $recommended_user) }}">{{ $recommended_user->name }}さん</a>
+                                <a href="{{ route('users.show', $recommended_user) }}">{{ $recommended_user->name }}さん</a></br>
                                 <form method="post" action="{{ route('follows.store') }}" class="follow">
                                     @csrf
                                     <input type="hidden" name="follow_id" value="{{ $recommended_user->id }}">

@@ -1,9 +1,9 @@
 @extends('layouts.not_logged_in')
 
 @section('content')
-<div class="content_center">
+<main class="content_center">
     <h1>ログイン</h1>
-        <div>
+        <article>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div>
@@ -21,6 +21,6 @@
                 </div>
                 <input type="submit" class="login_button button" value="ログイン">
             </form>
-        </div>
-</div>
+        </article>
+</main>
 @endsection

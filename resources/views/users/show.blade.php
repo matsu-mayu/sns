@@ -2,6 +2,7 @@
 
 @section('content')
 <h1>{{ $title }}</h1>
+  <main>
     <ul class="Index content_center">
         <li class="posts_border followed_width">
             <div>
@@ -22,4 +23,5 @@
             </div>
         </li>
     </ul>
+  </main>
 @endsection

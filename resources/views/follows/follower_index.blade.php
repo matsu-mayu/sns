@@ -6,8 +6,7 @@
       <ul class="Index content_center">
           @forelse($followers as $follower)
               <li class="posts_border followed_width">
-                <p class="user_name">{{ $follower->name }}さん</p>
-                @if(Auth::user()->isFollowing($follower))
+                <a href="{{ route('users.show', $follower) }}">{{ $follower->name }}さん</a>                @if(Auth::user()->isFollowing($follower))
                   <form method="post" action="{{route('follows.destroy', $follower)}}" class="follow">
                     @csrf
                     @method('delete')

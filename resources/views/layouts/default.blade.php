@@ -25,7 +25,7 @@
                 <div class="success">
                     {{\ Session::get('success') }}
                 </div>
-        @endif
+            @endif
         
         @yield('content')
     </body>

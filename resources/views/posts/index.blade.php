@@ -3,7 +3,7 @@
 @section('content')
     <h1>{{ $title }}</h1>
         <article>
-            <div class="Index">
+            <section>
                 <form method="GET" action="{{route('posts.index')}}" class="search_box">
                     <input 
                         type="search"

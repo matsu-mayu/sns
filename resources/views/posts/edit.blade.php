@@ -2,8 +2,8 @@
  
 @section('content')
     <h1>{{ $title }}</h1>
-        <main>
-            <div class="content_center">
+        <main class="content_center">
+            <article>
                 <form method="POST" action="{{ route('posts.update', $post) }}">
                     @csrf
                     @method('patch')
@@ -16,9 +16,8 @@
                                     value="{{ $post->comment }}">
                             </label>
                         </div>
-                    
-                    <input type="submit" class="button" value="投稿">
+                        <input type="submit" class="button" value="投稿">
                 </form>
-            </div>
+            </article>
         </main>
 @endsection

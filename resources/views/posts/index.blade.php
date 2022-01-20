@@ -22,7 +22,7 @@
                         </a>
                     @endforeach
                 @endif
-            </div>
+            </section>
         </article>
 
         <main>
